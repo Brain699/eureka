@@ -40,7 +40,8 @@
 		</dependencies>
 	</dependencyManagement>
 		<build>
-        <plugins>
+        <!--
+		<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -49,5 +50,32 @@
                 </configuration>
             </plugin>
         </plugins> 
-    </build>
+        -->
+        <plugins>
+            <plugin>
+                <!--打包成可执行jar-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>cn.learning.RunAppProviderUser</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    	</build>
 </project>
