@@ -10,7 +10,6 @@ public class HelloController {
 	@RequestMapping("/hello/{name}")
 	public String hello(@PathVariable String name) {
 
-		System.out.println("test-----------");
 		return "1 springboot hello"+name;
 	}
 
